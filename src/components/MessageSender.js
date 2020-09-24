@@ -36,6 +36,7 @@ export default function MessageSender(props) {
         </Wrapper>
     );
 }
+
 const Wrapper = styled.div`
     height: 80px;
     width: 100%;
@@ -47,16 +48,16 @@ const Wrapper = styled.div`
 `;
 
 const MessageLineStyle = styled.div`
-    border: 1px solid black;
-    border-radius: 10px;
-
     img {
         height: 60px;
         width: 60px;
         border-radius: 25px;
 
-        margin: 7px;
+		margin: 10px;
+		
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
 	}
+
 	align-items: center;
 `;
 
@@ -73,13 +74,18 @@ const RightUser = styled(MessageLineStyle)`
 `;
 
 const ChatStyle = styled.div`
-    border: 1px solid black;
-    border-radius: 10px;
-
     height: 25px;
+
+	background-color: white;
 
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 10px;
+	align-items: center;
+	
+	padding: 10px;
+	
+	border: none;
+    border-radius: 10px;
+
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
 `;
