@@ -20,8 +20,17 @@ export default function ChattingScreen() {
         { user: true, content: 'ㅠㅠ' },
     ];
 
-	const [currentUser, setCurrentUser] = useState(false);
+	const [currentUser, setCurrentUser] = useState(false); // 현재 채팅하는 사람 
 	const [newMSGList, setNewMSGList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
+	
+	const addMessageToList = (message) => {
+		console.log(message);
+		setNewMSGList(newMSGList.concat([{
+			user: currentUser,
+			content: message
+		}]));
+	}
+
 	const chattingList = newMSGList.map((msg, index) => {
 		return (
 			<MessageLine
@@ -32,18 +41,13 @@ export default function ChattingScreen() {
 			></MessageLine>
 		);
 	});
-	
-	const addMessageToList = (message) => {
-		console.log(message);
-		setNewMSGList(newMSGList.concat([{
-			user: currentUser,
-			content: message
-		}]));
-	}
 
     return (
         <Wrapper>
-            <Header></Header>
+			<Header 
+				user={currentUser ? "고은" : "정쿨"} 
+				profileImg={currentUser ? EUNKO: COOL}	
+			></Header>
 			{chattingList}
             <MessageSender addToList={addMessageToList}></MessageSender>
         </Wrapper>
@@ -72,11 +76,12 @@ const Wrapper = styled.div`
 	width: 100%;
 	height: 100%;
 
-	margin: 0;
+	margin-top: 70px;
 	padding: 0;
 `;
 
 const MessageLineStyle = styled.div`
+
     img {
         height: 60px;
         width: 60px;
