@@ -23,9 +23,82 @@ export default function ChattingScreen() {
     return (
         <Wrapper>
             <Header></Header>
-            <MessageSender imglist={{EUNKO, COOL}}msglist={MSGLIST}></MessageSender>
+			{MSGLIST.map((msg, index) => {
+                return (
+                    <MessageLine
+                        key={index}
+                        user={msg.user}
+                        profileImg={msg.user ? EUNKO: COOL}
+                        message={msg.content}
+                    ></MessageLine>
+                );
+            })}
+            <MessageSender></MessageSender>
         </Wrapper>
     );
 }
 
-const Wrapper = styled.div``;
+function MessageLine({ user, profileImg, message }) {
+    if (user) {
+        return (
+                <LeftUser>
+                    <img src={profileImg} alt="leftUser"/>
+                    <ChatStyle>{message}</ChatStyle>
+                </LeftUser>
+        );
+    } else {
+        return (
+                <RightUser>
+                    <img src={profileImg} alt="rightUser"/>
+                    <ChatStyle>{message}</ChatStyle>
+                </RightUser>
+        );
+    }
+}
+
+const Wrapper = styled.div`
+
+`;
+
+const MessageLineStyle = styled.div`
+    img {
+        height: 60px;
+        width: 60px;
+        border-radius: 25px;
+
+		margin: 10px;
+		
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
+	}
+
+	align-items: center;
+`;
+
+const LeftUser = styled(MessageLineStyle)`
+    display: flex;
+    flex-direction: row;
+`;
+
+const RightUser = styled(MessageLineStyle)`
+    display: flex;
+    flex-direction: row-reverse;
+	justify-content: flex-start;
+	
+`;
+
+const ChatStyle = styled.div`
+    height: 25px;
+
+	background-color: white;
+
+    display: flex;
+    flex-direction: row;
+	align-items: center;
+	
+	padding: 10px;
+	
+	border: none;
+    border-radius: 10px;
+
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
+`;
