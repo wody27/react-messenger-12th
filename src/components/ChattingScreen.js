@@ -23,6 +23,8 @@ export default function ChattingScreen() {
 	const [currentUser, setCurrentUser] = useState(false); // 현재 채팅하는 사람 
 	const [newMSGList, setNewMSGList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
 	
+	
+
 	const addMessageToList = (message) => {
 		setNewMSGList(newMSGList.concat([{
 			user: currentUser,
@@ -52,7 +54,9 @@ export default function ChattingScreen() {
 				profileImg={currentUser ? EUNKO: COOL}
 				changeUser={changeUser}	
 			></Header>
+			<div className="emptyChat"></div>
 			{chattingList}
+			<div className="emptyChat"></div>
             <MessageSender addToList={addMessageToList}></MessageSender>
         </Wrapper>
     );
@@ -80,8 +84,12 @@ const Wrapper = styled.div`
 	width: 100%;
 	height: 100%;
 
-	margin-top: 80px;
 	padding: 0;
+
+	div.emptyChat {
+		height: 80px;
+		// flex-shrink: 0;
+	}
 `;
 
 const MessageLineStyle = styled.div`
