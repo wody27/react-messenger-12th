@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Header from './Header';
@@ -20,43 +20,49 @@ export default function ChattingScreen() {
         { user: true, content: 'ㅠㅠ' },
     ];
 
-	const [currentUser, setCurrentUser] = useState(false); // 현재 채팅하는 사람 
-	const [newMSGList, setNewMSGList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
+    const [currentUser, setCurrentUser] = useState(false); // 현재 채팅하는 사람
+    const [newMSGList, setNewMSGList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
 	
-	
+	useEffect(() => {
+		window.scrollBy(0, window.innerHeight);
+	})
 
-	const addMessageToList = (message) => {
-		setNewMSGList(newMSGList.concat([{
-			user: currentUser,
-			content: message
-		}]));
-	}
+    const addMessageToList = (message) => {
+        setNewMSGList(
+            newMSGList.concat([
+                {
+                    user: currentUser,
+                    content: message,
+                },
+            ])
+        );
+    };
 
-	const changeUser = () => {
-		setCurrentUser(!currentUser);
-	}
+    const changeUser = () => {
+        setCurrentUser(!currentUser);
+    };
 
-	const chattingList = newMSGList.map((msg, index) => {
-		return (
-			<MessageLine
-				key={index}
-				user={msg.user}
-				profileImg={msg.user ? EUNKO: COOL}
-				message={msg.content}
-			></MessageLine>
-		);
-	});
+    const chattingList = newMSGList.map((msg, index) => {
+        return (
+            <MessageLine
+                key={index}
+                user={msg.user}
+                profileImg={msg.user ? EUNKO : COOL}
+                message={msg.content}
+            ></MessageLine>
+        );
+    });
 
     return (
         <Wrapper>
-			<Header 
-				user={currentUser ? "고은" : "정쿨"} 
-				profileImg={currentUser ? EUNKO: COOL}
-				changeUser={changeUser}	
-			></Header>
-			<div className="emptyChat"></div>
-			{chattingList}
-			<div className="emptyChat"></div>
+            <Header
+                user={currentUser ? '고은' : '정쿨'}
+                profileImg={currentUser ? EUNKO : COOL}
+                changeUser={changeUser}
+            ></Header>
+            <div className="emptyChat"></div>
+            {chattingList}
+            <div className="emptyChat"></div>
             <MessageSender addToList={addMessageToList}></MessageSender>
         </Wrapper>
     );
@@ -65,46 +71,45 @@ export default function ChattingScreen() {
 function MessageLine({ user, profileImg, message }) {
     if (user) {
         return (
-                <LeftUser>
-                    <img src={profileImg} alt="leftUser"/>
-                    <ChatStyle>{message}</ChatStyle>
-                </LeftUser>
+            <LeftUser>
+                <img src={profileImg} alt="leftUser" />
+                <ChatStyle>{message}</ChatStyle>
+            </LeftUser>
         );
     } else {
         return (
-                <RightUser>
-                    <img src={profileImg} alt="rightUser"/>
-                    <ChatStyle>{message}</ChatStyle>
-                </RightUser>
+            <RightUser>
+                <img src={profileImg} alt="rightUser" />
+                <ChatStyle>{message}</ChatStyle>
+            </RightUser>
         );
     }
 }
 
 const Wrapper = styled.div`
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 
-	padding: 0;
+    padding: 0;
 
-	div.emptyChat {
-		height: 80px;
-		// flex-shrink: 0;
-	}
+    div.emptyChat {
+        height: 80px;
+        // flex-shrink: 0;
+    }
 `;
 
 const MessageLineStyle = styled.div`
-
     img {
         height: 60px;
         width: 60px;
         border-radius: 25px;
 
-		margin: 10px;
-		
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
-	}
+        margin: 10px;
 
-	align-items: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    align-items: center;
 `;
 
 const LeftUser = styled(MessageLineStyle)`
@@ -115,23 +120,22 @@ const LeftUser = styled(MessageLineStyle)`
 const RightUser = styled(MessageLineStyle)`
     display: flex;
     flex-direction: row-reverse;
-	justify-content: flex-start;
-	
+    justify-content: flex-start;
 `;
 
 const ChatStyle = styled.div`
     height: 25px;
 
-	background-color: white;
+    background-color: white;
 
     display: flex;
     flex-direction: row;
-	align-items: center;
-	
-	padding: 10px;
-	
-	border: none;
+    align-items: center;
+
+    padding: 10px;
+
+    border: none;
     border-radius: 10px;
 
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 `;
