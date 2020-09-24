@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Header from './Header';
@@ -20,20 +20,32 @@ export default function ChattingScreen() {
         { user: true, content: 'ㅠㅠ' },
     ];
 
+	const [currentUser, setCurrentUser] = useState(false);
+	const [newMSGList, setNewMSGList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
+	const chattingList = newMSGList.map((msg, index) => {
+		return (
+			<MessageLine
+				key={index}
+				user={msg.user}
+				profileImg={msg.user ? EUNKO: COOL}
+				message={msg.content}
+			></MessageLine>
+		);
+	});
+	
+	const addMessageToList = (message) => {
+		console.log(message);
+		setNewMSGList(newMSGList.concat([{
+			user: currentUser,
+			content: message
+		}]));
+	}
+	
     return (
         <Wrapper>
             <Header></Header>
-			{MSGLIST.map((msg, index) => {
-                return (
-                    <MessageLine
-                        key={index}
-                        user={msg.user}
-                        profileImg={msg.user ? EUNKO: COOL}
-                        message={msg.content}
-                    ></MessageLine>
-                );
-            })}
-            <MessageSender></MessageSender>
+			{chattingList}
+            <MessageSender addToList={addMessageToList}></MessageSender>
         </Wrapper>
     );
 }
