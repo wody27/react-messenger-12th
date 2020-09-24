@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Header from './Header';
@@ -40,7 +40,7 @@ export default function ChattingScreen() {
 			content: message
 		}]));
 	}
-	
+
     return (
         <Wrapper>
             <Header></Header>
@@ -69,7 +69,11 @@ function MessageLine({ user, profileImg, message }) {
 }
 
 const Wrapper = styled.div`
+	width: 100%;
+	height: 100%;
 
+	margin: 0;
+	padding: 0;
 `;
 
 const MessageLineStyle = styled.div`
