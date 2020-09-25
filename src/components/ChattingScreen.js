@@ -13,7 +13,7 @@ export default function ChattingScreen() {
     { user: true, content: '저희의 대화를 마음껏 조작해보세요 💌' },
     { user: true, content: '상단에 프로필을 눌러서 발신자 변경하면 됩니당~' },
     { user: false, content: '안녕 은아' },
-    { user: false, content: '뭐해 ?' },
+    { user: false, content: 'ㅁㅎ?' },
     { user: true, content: '시원아 넌 최고의 팀장이야' },
     { user: false, content: '나도 아니까  ' },
     { user: false, content: '그만 말해줘도 돼' },
