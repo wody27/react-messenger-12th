@@ -1,6 +1,6 @@
 ## CEOS 2주차 스터디
 
-- 미션 링크: https://react-messenger-12th-ib1g2sxs9.vercel.app
+- 미션 링크: https://react-messenger-12th.wody27.vercel.app
 - [미션을 통해 배운점, 힘들었던 점](#미션을-통해-배운점,-힘들었던-점)
 - [Key Questions](#Key-Questions)
 
