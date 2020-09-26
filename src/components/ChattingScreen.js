@@ -21,15 +21,15 @@ export default function ChattingScreen() {
   ];
 
   const [currentUser, setCurrentUser] = useState(false); // 현재 채팅하는 사람
-  const [newMSGList, setNewMSGList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
+  const [newMessageList, setNewMessageList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
 
   useEffect(() => {
-    window.scrollBy(0, window.innerHeight);
-  });
+    window.scrollBy(0, document.body.scrollHeight);
+  }, [newMessageList]);
 
   const addMessageToList = (message) => {
-    setNewMSGList(
-      newMSGList.concat([
+    setNewMessageList(
+      newMessageList.concat([
         {
           user: currentUser,
           content: message,
@@ -42,7 +42,7 @@ export default function ChattingScreen() {
     setCurrentUser(!currentUser);
   };
 
-  const chattingList = newMSGList.map((msg, index) => {
+  const chattingList = newMessageList.map((msg, index) => {
     return (
       <MessageLine key={index} user={msg.user} profileImg={msg.user ? EUNKO : COOL} message={msg.content}></MessageLine>
     );
@@ -53,32 +53,23 @@ export default function ChattingScreen() {
       <Header
         user={currentUser ? '고은' : '정쿨'}
         profileImg={currentUser ? EUNKO : COOL}
-        changeUser={changeUser}
+        {...{changeUser}}
       ></Header>
-      <div className="emptyChat"></div>
+      <EmptyChat></EmptyChat>
       {chattingList}
-      <div className="emptyChat"></div>
+      <EmptyChat></EmptyChat>
       <MessageSender addToList={addMessageToList}></MessageSender>
     </Wrapper>
   );
 }
 
 function MessageLine({ user, profileImg, message }) {
-  if (user) {
-    return (
-      <LeftUser>
-        <img src={profileImg} alt="leftUser" />
-        <ChatStyle>{message}</ChatStyle>
-      </LeftUser>
-    );
-  } else {
-    return (
-      <RightUser>
-        <img src={profileImg} alt="rightUser" />
-        <ChatStyle>{message}</ChatStyle>
-      </RightUser>
-    );
-  }
+  return (
+    <Message sending={!user}>
+      <Img src={profileImg} alt="user" />
+      <ChatStyle>{message}</ChatStyle>
+    </Message>
+  );
 }
 
 const Wrapper = styled.div`
@@ -86,36 +77,26 @@ const Wrapper = styled.div`
   height: 100%;
 
   padding: 0;
-
-  div.emptyChat {
-    height: 80px;
-    // flex-shrink: 0;
-  }
 `;
 
-const MessageLineStyle = styled.div`
-  img {
-    height: 60px;
-    width: 60px;
-    border-radius: 25px;
-
-    margin: 10px;
-
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-
-  align-items: center;
+const EmptyChat = styled.div`
+  height: 80px;
+}
 `;
 
-const LeftUser = styled(MessageLineStyle)`
+const Img = styled.img`
+  height: 60px;
+  width: 60px;
+  border-radius: 25px;
+
+  margin: 10px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+`;
+
+const Message = styled.div`
   display: flex;
-  flex-direction: row;
-`;
-
-const RightUser = styled(MessageLineStyle)`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-start;
+  flex-direction: ${(props) => (props.sending ? 'row-reverse': 'row')}
 `;
 
 const ChatStyle = styled.div`
