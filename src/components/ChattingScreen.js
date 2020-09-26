@@ -96,7 +96,8 @@ const Img = styled.img`
 
 const Message = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.sending ? 'row-reverse': 'row')}
+  flex-direction: ${(props) => (props.sending ? 'row-reverse': 'row')};
+  align-items: center;
 `;
 
 const ChatStyle = styled.div`
@@ -107,7 +108,7 @@ const ChatStyle = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  
   padding: 10px;
 
   border: none;

@@ -21,11 +21,38 @@ export default function MessageSender({ addToList }) {
 
   return (
     <Wrapper onSubmit={handleSubmitMessage}>
-      <input name="message" value={message} onChange={handleChangeMessage} className="input-message" />
-      <button type="submit">전송</button>
+      <InputMessage name="message" value={message} onChange={handleChangeMessage} />
+      <InputButton type="submit">전송</InputButton>
     </Wrapper>
   );
 }
+const InputMessage = styled.input`
+  width: 90%;
+  height: 50px;
+  padding: 0 5px;
+
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+
+  text-align: left;
+  font-size: 15px;
+`;
+
+const InputButton = styled.button`
+  width: 60px;
+  height: 50px;
+
+  margin-right: 20px;
+  color: black;
+  background-color: rgb(255, 224, 102);
+
+  border: none;
+  border-radius: 20px;
+
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
+  font-size: 18px;
+`;
 
 const Wrapper = styled.form`
   // 하단에 고정
@@ -43,32 +70,4 @@ const Wrapper = styled.form`
   align-items: center;
   color: white;
   padding: 4px 16px;
-
-  .input-message {
-    width: 90%;
-    height: 50px;
-    padding: 0 5px;
-
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-
-    text-align: left;
-    font-size: 15px;
-  }
-
-  button {
-    width: 60px;
-    height: 50px;
-
-    margin-right: 20px;
-    color: black;
-    background-color: rgb(255, 224, 102);
-
-    border: none;
-    border-radius: 20px;
-
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-
-    font-size: 18px;
-  }
 `;

@@ -2,18 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Header({ user, profileImg, changeUser }) {
-  const handleButtonClick = () => {
-    changeUser();
-  };
   return (
     <Wrapper>
-      <button onClick={handleButtonClick}>
-        <img src={profileImg} alt="userProfile"/>
-      </button>
-      <Stack>
-        <h2>{user}</h2>
-        <div>현재 활동중</div>
-      </Stack>
+      <Button onClick={changeUser}>
+        <ProfileImg src={profileImg} alt="userProfile"/>
+      </Button>
+      <UserInfo>
+        <UserName>{user}</UserName>
+        <UserOn>현재 활동중</UserOn>
+      </UserInfo>
     </Wrapper>
   );
 }
@@ -30,35 +27,37 @@ const Wrapper = styled.div`
 
   display: flex;
   flex-direction: row;
-
-  button {
-    width: 80px;
-    height: 80px;
-    margin: 0;
-    padding: 5px;
-    margin-left: 15px;
-
-    background-color: white;
-    border: none;
-  }
-
-  img {
-    width: 70px;
-    height: 70px;
-
-    opacity: 1;
-    border-radius: 15px;
-  }
 `;
 
-const Stack = styled.div`
+const Button = styled.button`
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  padding: 5px;
+  margin-left: 15px;
+
+  background-color: white;
+  border: none;
+`;
+
+const ProfileImg = styled.img`
+  width: 70px;
+  height: 70px;
+  
+  border-radius: 15px;
+`;
+
+const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
 
   margin-left: 10px;
-  h2 {
-    margin: 0;
-    margin-bottom: 5px;
-  }
 `;
+
+const UserName = styled.h2`
+  margin: 0;
+  margin-bottom: 5px;
+`;
+
+const UserOn = styled.div``;
