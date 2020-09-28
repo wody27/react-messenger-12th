@@ -65,7 +65,6 @@ const Wrapper = styled.form`
   background-color: white;
 
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   color: white;
