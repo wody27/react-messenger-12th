@@ -5,7 +5,7 @@ export default function Label({ label }) {
   return <Title>{label}</Title>;
 }
 
-const Title = styled.h2`
+const Title = styled.h3`
   margin: 0;
   padding: 0;
 

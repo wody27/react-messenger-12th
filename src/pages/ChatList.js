@@ -6,11 +6,13 @@ import Label from '../components/Label';
 export default function ChatList() {
   return (
     <Wrapper>
-      <HStack>
-        <Label label="채팅" />
-        <Label label="채팅방이미지" />
-      </HStack>
-      <SearchBar />
+      <Fixed>
+        <HStack>
+          <Label label="채팅" />
+          <Label label="채팅방이미지" />
+        </HStack>
+        <SearchBar />
+      </Fixed>
       <Scroll></Scroll>
     </Wrapper>
   );
@@ -21,6 +23,7 @@ const Wrapper = styled.div`
   height: 100%;
 
   margin: 16px;
+  margin-left: 86px;
 
   display: flex;
   flex-direction: column;
@@ -32,6 +35,13 @@ const HStack = styled.div`
 
   display: flex;
   justify-content: space-between;
+`;
+
+const Fixed = styled.div`
+  position: fixed;
+  top: 16px;
+  left: 86px;
+  right: 16px;
 `;
 
 const Scroll = styled.div``;

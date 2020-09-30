@@ -14,9 +14,7 @@ export default function SideBarMenu() {
 
 const Wrapper = styled.div`
   height: 100%;
-  width: 20%;
-  max-width: 150px;
-  min-width: 80px;
+  width: 70px;
 
   position: fixed;
   top: 0;

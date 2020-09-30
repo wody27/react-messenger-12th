@@ -8,7 +8,6 @@ export default function App() {
   return (
     <Wrapper>
       <SideBarMenu />
-      <EmptyBox />
       <Route path="/friend" component={FriendList} />
       <Route path="/chat" component={ChatList} />
       <Route path="/setting" component={Setting} />
@@ -24,13 +23,4 @@ const Wrapper = styled.div`
   }
   display: flex;
   flex-direction: row;
-`;
-
-const EmptyBox = styled.div`
-  height: 100vh;
-  width: 20vw;
-  max-width: 150px;
-  min-width: 80px;
-
-  background-color: #423530;
 `;

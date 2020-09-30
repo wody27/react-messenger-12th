@@ -16,15 +16,15 @@ export default function SearchBar() {
   return (
     <Wrapper onSubmit={handleTextSubmitted}>
       <Glass>🔍</Glass>
-      <Search name="text" value={text} placeholder="이름으로 검색" onChange={handleTextChanged} />
+      <Search name="text" value={text} placeholder="채팅방 이름, 참여자 검색" onChange={handleTextChanged} />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.form`
-  height: 70px;
+  height: 30px;
 
-  margin-top: 30px;
+  margin-top: 20px;
 
   //border: 2px solid white; 후순위 구현
   border-radius: 6px;
@@ -35,14 +35,13 @@ const Wrapper = styled.form`
 `;
 
 const Glass = styled.span`
-  margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 12px;
+  margin-right: 6px;
 `;
 
 const Search = styled.input`
   width: 95%;
 
-  padding: 13px;
   margin: 0;
   margin-right: 5px;
 
@@ -50,6 +49,6 @@ const Search = styled.input`
 
   background-color: #ededed;
 
-  font-size: 20px;
+  font-size: 12px;
   outline: none;
 `;
