@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import ChattingScreen from './components/ChattingScreen';
+import { Route, Switch } from 'react-router-dom';
+import { FriendList, ChatList, Setting } from './routes';
+import SideBarMenu from './components/SideBarMenu';
 
 export default function App() {
   return (
     <Wrapper>
-      <ChattingScreen></ChattingScreen>
+      <SideBarMenu />
+      <Route path="/friend" component={FriendList} />
+      <Route path="/chat" component={ChatList} />
+      <Route path="/setting" component={Setting} />
     </Wrapper>
   );
 }
@@ -16,4 +20,6 @@ const Wrapper = styled.div`
   & * {
     font-family: sans-serif;
   }
+  display: flex;
+  flex-direction: row;
 `;
