@@ -26,6 +26,7 @@ export default function MessageSender({ addToList }) {
     </Wrapper>
   );
 }
+
 const InputMessage = styled.input`
   width: 90%;
   height: 50px;

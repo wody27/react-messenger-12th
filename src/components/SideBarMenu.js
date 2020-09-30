@@ -5,33 +5,27 @@ import { Link } from 'react-router-dom';
 export default function SideBarMenu() {
   return (
     <Wrapper>
-      <ul>
-        <li>
-          <Link to="/friend">친구리스트사진</Link>
-        </li>
-        <li>
-          <Link to="/chat">채팅리스트사진</Link>
-        </li>
-        <li>
-          <Link to="/setting">설정</Link>
-        </li>
-      </ul>
+      <Link to="/friend">친구</Link>
+      <Link to="/chat">채팅</Link>
+      <Link to="/setting">설정</Link>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  height: 100vh;
-  width: 20vw;
-  max-width: 300px;
+  height: 100%;
+  width: 20%;
+  max-width: 150px;
   min-width: 80px;
 
   position: fixed;
   top: 0;
   left: 0;
 
-  background-color: black;
+  background-color: #423530;
   color: white;
 
-  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
