@@ -24,6 +24,8 @@ const Message = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.sending ? 'row-reverse' : 'row')};
   align-items: center;
+
+  background-color: #abc1d1;
 `;
 
 const ChatStyle = styled.div`

@@ -5,7 +5,7 @@ import Header from './Header';
 import MessageSender from './MessageSender';
 import MessageLine from './MessageLine';
 
-export default function ChattingScreen() {
+export default function ChattingScreen(props) {
   const EUNKO = 'https://img.techpowerup.org/200908/eun.png';
   const COOL = 'https://img.techpowerup.org/200908/NjRiY2JjOGU5YzQz.png';
 
@@ -23,7 +23,7 @@ export default function ChattingScreen() {
 
   const [currentUser, setCurrentUser] = useState(false); // 현재 채팅하는 사람
   const [newMessageList, setNewMessageList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
-
+  console.log(props);
   useEffect(() => {
     window.scrollBy(0, document.body.scrollHeight);
   }, [newMessageList]);
@@ -64,7 +64,10 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
+  margin-left: 70px;
   padding: 0;
+
+  background-color: #abc1d1;
 `;
 
 const EmptyChat = styled.div`

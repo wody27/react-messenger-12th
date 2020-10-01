@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Cell from './Cell';
@@ -8,6 +8,7 @@ import FRIEND_LIST_DATA from '../resources/FriendListData';
 
 export default function List({ from, route }) {
   const { match, history } = route;
+  const [selected, setSelected] = useState(-1);
   const listData = from === 'CHAT' ? CHAT_LIST_DATA : FRIEND_LIST_DATA;
   const isChatList = from === 'CHAT' ? 'true' : 'false';
 
@@ -15,6 +16,8 @@ export default function List({ from, route }) {
     return (
       <Button
         key={index}
+        isSelected={selected === index ? true : false}
+        onClick={() => setSelected(index)}
         onDoubleClick={() => {
           history.push(`${match.url}/${index}`);
         }}
@@ -46,7 +49,7 @@ const Button = styled.button`
 
   border: none;
 
-  background-color: white;
+  background-color: ${(props) => (props.isSelected === true ? '#ededed' : 'white')};
 
   outline: none;
 `;

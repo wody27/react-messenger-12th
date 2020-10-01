@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import SearchBar from '../components/SearchBar';
 import Label from '../components/Label';
 import List from '../components/List';
