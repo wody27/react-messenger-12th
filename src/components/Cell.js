@@ -1,16 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Cell({ name, img, message }) {
+export default function Cell({ name, img, message, list }) {
   return (
     <Wrapper>
-      {/* <Button> */}
-      <Img src={img} alt={name} />
+      <Img src={img} alt={name} list={list} />
       <VStack>
         <Name>{name}</Name>
         {message && <Message>{message}</Message>}
       </VStack>
-      {/* </Button> */}
     </Wrapper>
   );
 }
@@ -18,19 +16,6 @@ export default function Cell({ name, img, message }) {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-`;
-
-const Button = styled.button`
-  width: 100%;
-
-  padding: 0;
-
-  border: none;
-
-  display: flex;
-  align-items: center;
-
-  background-color: white;
 `;
 
 const VStack = styled.div`
@@ -43,17 +28,23 @@ const Img = styled.img`
   width: 46px;
   height: 46px;
 
-  margin: 16px 10px;
+  margin: ${(props) => (props.list === 'true' ? '16px 10px' : '8px 10px')};
+
   border-radius: 15px;
 `;
 
 const Name = styled.div`
+  text-align: left;
+
   font-size: 13px;
   font-weight: bold;
 `;
 
 const Message = styled.div`
   margin-top: 8px;
+
+  text-align: left;
+
   font-size: 10px;
   font-weight: lighter;
 `;

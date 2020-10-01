@@ -14,7 +14,7 @@ export default function ChatList(props) {
         </HStack>
         <SearchBar placeholderName="채팅방 이름, 참여자 검색" />
       </Fixed>
-      <List props={props}></List>
+      <List from="CHAT" route={props}></List>
     </Wrapper>
   );
 }
@@ -46,5 +46,3 @@ const Fixed = styled.div`
   padding-top: 16px;
   background-color: white;
 `;
-
-const Scroll = styled.div``;

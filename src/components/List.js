@@ -1,23 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, useHistory } from 'react-router-dom';
 
 import Cell from './Cell';
-import CHAT_LIST_DATA from '../resources/ChatListData';
 
-export default function List({ props }) {
-  const { match, history } = props;
-  return (
-    <Wrapper>
-      {CHAT_LIST_DATA.map((item, index) => {
-        return (
-          <Button key={index} onDoubleClick={() => history.push(`${match.url}/${index}`)}>
-            <Cell key={index} name={item.name} img={item.image} message="dfasdfasd" />
-          </Button>
-        );
-      })}
-    </Wrapper>
-  );
+import CHAT_LIST_DATA from '../resources/ChatListData';
+import FRIEND_LIST_DATA from '../resources/FriendListData';
+
+export default function List({ from, route }) {
+  const { match, history } = route;
+  const listData = from === 'CHAT' ? CHAT_LIST_DATA : FRIEND_LIST_DATA;
+  const isChatList = from === 'CHAT' ? 'true' : 'false';
+
+  const list = listData.map((item, index) => {
+    return (
+      <Button
+        key={index}
+        onDoubleClick={() => {
+          history.push(`${match.url}/${index}`);
+        }}
+      >
+        <Cell key={index} name={item.name} img={item.image} message={item.message} list={isChatList} />
+      </Button>
+    );
+  });
+
+  return <Wrapper>{list}</Wrapper>;
 }
 
 const Wrapper = styled.div`
@@ -40,4 +47,6 @@ const Button = styled.button`
   border: none;
 
   background-color: white;
+
+  outline: none;
 `;

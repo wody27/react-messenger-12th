@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import { FriendList, ChatList, Setting } from './pages';
 import SideBarMenu from './components/SideBarMenu';
