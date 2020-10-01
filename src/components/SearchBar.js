@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-export default function SearchBar() {
+export default function SearchBar({ placeholderName }) {
   const [text, setText] = useState('');
 
   const handleTextChanged = (event) => {
@@ -16,7 +16,7 @@ export default function SearchBar() {
   return (
     <Wrapper onSubmit={handleTextSubmitted}>
       <Glass>🔍</Glass>
-      <Search name="text" value={text} placeholder="채팅방 이름, 참여자 검색" onChange={handleTextChanged} />
+      <Search name="text" value={text} placeholder={placeholderName} onChange={handleTextChanged} />
     </Wrapper>
   );
 }

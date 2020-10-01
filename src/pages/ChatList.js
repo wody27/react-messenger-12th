@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchBar from '../components/SearchBar';
 import Label from '../components/Label';
+import List from '../components/List';
 
-export default function ChatList() {
+export default function ChatList(props) {
   return (
     <Wrapper>
       <Fixed>
@@ -11,9 +12,9 @@ export default function ChatList() {
           <Label label="채팅" />
           <Label label="채팅방이미지" />
         </HStack>
-        <SearchBar />
+        <SearchBar placeholderName="채팅방 이름, 참여자 검색" />
       </Fixed>
-      <Scroll></Scroll>
+      <List props={props}></List>
     </Wrapper>
   );
 }
@@ -22,8 +23,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  margin: 16px;
-  margin-left: 86px;
+  margin-left: 70px;
 
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 
 const HStack = styled.div`
   width: 100%;
-  height: 4%;
+  height: 24px;
 
   display: flex;
   justify-content: space-between;
@@ -39,9 +39,12 @@ const HStack = styled.div`
 
 const Fixed = styled.div`
   position: fixed;
-  top: 16px;
-  left: 86px;
+  left: 70px;
   right: 16px;
+
+  padding-left: 16px;
+  padding-top: 16px;
+  background-color: white;
 `;
 
 const Scroll = styled.div``;

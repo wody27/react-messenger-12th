@@ -5,7 +5,14 @@ import { Link } from 'react-router-dom';
 export default function SideBarMenu() {
   return (
     <Wrapper>
-      <Link to="/friend">친구</Link>
+      <Link
+        onClick={() => {
+          console.log('친구');
+        }}
+        to="/friend"
+      >
+        친구
+      </Link>
       <Link to="/chat">채팅</Link>
       <Link to="/setting">설정</Link>
     </Wrapper>

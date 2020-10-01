@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Header from './Header';
 import MessageSender from './MessageSender';
+import MessageLine from './MessageLine';
 
 export default function ChattingScreen() {
   const EUNKO = 'https://img.techpowerup.org/200908/eun.png';
@@ -42,7 +43,7 @@ export default function ChattingScreen() {
     setCurrentUser(!currentUser);
   };
 
-  const chattingList = newMessageList.map((msg, index) => {
+  const chatting = newMessageList.map((msg, index) => {
     return (
       <MessageLine key={index} user={msg.user} profileImg={msg.user ? EUNKO : COOL} message={msg.content}></MessageLine>
     );
@@ -50,25 +51,12 @@ export default function ChattingScreen() {
 
   return (
     <Wrapper>
-      <Header
-        user={currentUser ? '고은' : '정쿨'}
-        profileImg={currentUser ? EUNKO : COOL}
-        {...{changeUser}}
-      ></Header>
+      <Header user={currentUser ? '고은' : '정쿨'} profileImg={currentUser ? EUNKO : COOL} {...{ changeUser }}></Header>
       <EmptyChat></EmptyChat>
-      {chattingList}
+      {chatting}
       <EmptyChat></EmptyChat>
       <MessageSender addToList={addMessageToList}></MessageSender>
     </Wrapper>
-  );
-}
-
-function MessageLine({ user, profileImg, message }) {
-  return (
-    <Message sending={!user}>
-      <Img src={profileImg} alt="user" />
-      <ChatStyle>{message}</ChatStyle>
-    </Message>
   );
 }
 
@@ -82,36 +70,4 @@ const Wrapper = styled.div`
 const EmptyChat = styled.div`
   height: 80px;
 }
-`;
-
-const Img = styled.img`
-  height: 60px;
-  width: 60px;
-  border-radius: 25px;
-
-  margin: 10px;
-
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-`;
-
-const Message = styled.div`
-  display: flex;
-  flex-direction: ${(props) => (props.sending ? 'row-reverse': 'row')};
-  align-items: center;
-`;
-
-const ChatStyle = styled.div`
-  height: 25px;
-
-  background-color: white;
-
-  display: flex;
-  align-items: center;
-  
-  padding: 10px;
-
-  border: none;
-  border-radius: 10px;
-
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 `;
