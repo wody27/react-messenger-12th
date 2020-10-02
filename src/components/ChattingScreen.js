@@ -79,7 +79,7 @@ export default function ChattingScreen({ match }) {
 }
 
 const Wrapper = styled.div`
-  width: 100%;
+  // width: 100%;
   height: 100%;
 
   margin-left: 70px;

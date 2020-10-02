@@ -11,11 +11,11 @@ export default function Setting() {
 
           <Label label="Ver. 2.6.6" />
         </HStack>
+        <Img
+          src="https://user-images.githubusercontent.com/56102421/94956342-fd35f500-0526-11eb-867c-07e03702c901.png"
+          alt=""
+        />
       </Fixed>
-      <Img
-        src="https://user-images.githubusercontent.com/56102421/94956342-fd35f500-0526-11eb-867c-07e03702c901.png"
-        alt=""
-      />
       <VStack>
         <Label label="새소식" />
         <Label label="공지사항" />
@@ -28,14 +28,13 @@ export default function Setting() {
 }
 
 const Wrapper = styled.div`
-  width: 100%;
+  // width: 100%;
   height: 100%;
 
   margin-left: 70px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 const HStack = styled.div`
@@ -47,11 +46,10 @@ const HStack = styled.div`
 `;
 
 const VStack = styled.div`
-  width: 100%;
   height: 300px;
 
-  margin-left: 50px;
-  margin-top: 100px;
+  margin-top: 300px;
+  margin-left: 15px;
 
   display: flex;
   flex-direction: column;
@@ -59,16 +57,19 @@ const VStack = styled.div`
 `;
 const Fixed = styled.div`
   position: fixed;
-  top: 0;
   left: 70px;
   right: 16px;
 
   padding-left: 16px;
   padding-top: 16px;
   background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Img = styled.img`
   width: 90px;
-  margin-top: 150px;
+  margin-top: 100px;
 `;
