@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import SearchBar from '../components/SearchBar';
@@ -7,7 +7,25 @@ import List from '../components/List';
 
 import FRIEND_LIST_DATA from '../resources/FriendListData';
 
+function filter(search) {
+  return FRIEND_LIST_DATA.filter((friend) => {
+    if (friend.name.includes(search)) {
+      return friend;
+    }
+  });
+}
+
 export default function ChatList(props) {
+  // 검색 기능
+  const [search, setSearch] = useState('');
+  const [filteredData, setFilteredData] = useState(FRIEND_LIST_DATA);
+  const getText = (text) => {
+    setSearch(text);
+  };
+
+  useEffect(() => {
+    setFilteredData(filter(search));
+  }, [search]);
   return (
     <Wrapper>
       <Fixed>
@@ -18,9 +36,9 @@ export default function ChatList(props) {
           </Empty>
           <Label label="친구이미지" />
         </HStack>
-        <SearchBar placeholderName="이름으로 검색" />
+        <SearchBar sendText={getText} placeholderName="이름으로 검색" />
       </Fixed>
-      <List from="FRIEND" route={props}></List>
+      <List data={filteredData} from="FRIEND" route={props}></List>
     </Wrapper>
   );
 }

@@ -19,7 +19,7 @@ export default function Home() {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   background-color: #abc1d1;
 

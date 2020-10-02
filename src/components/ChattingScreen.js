@@ -13,10 +13,11 @@ import FRIEND_LIST_DATA from '../resources/FriendListData';
 export default function ChattingScreen({ match }) {
   const isChat = match.url.split('/')[1] === 'chat' ? true : false;
   const index = match.params.index;
-
+  console.log(match.params);
   const OPPONENT_PROFILE = isChat ? CHAT_LIST_DATA[index] : FRIEND_LIST_DATA[index];
   const MY_PROFILE_IMG =
     'https://user-images.githubusercontent.com/56102421/94894116-af3bd580-04c3-11eb-87d0-d77e6794203e.jpeg';
+
   const MSGLIST = [
     { user: true, content: '안녕하세요 개발자분들~!' },
     { user: true, content: '카카오톡이랑 비슷하게 구현해보는중이에요!' },

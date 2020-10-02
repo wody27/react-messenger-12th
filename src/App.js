@@ -24,12 +24,8 @@ export default function App() {
 
 const Wrapper = styled.div`
   width: 100vw;
-  height: 100%;
 
   & * {
     font-family: sans-serif;
   }
-
-  display: flex;
-  flex-direction: row;
 `;
