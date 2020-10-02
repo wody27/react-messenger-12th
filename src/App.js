@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 
-import { FriendList, ChatList, Setting } from './pages';
+import { FriendList, ChatList, Setting, Home } from './pages';
 import SideBarMenu from './components/SideBarMenu';
 import ChattingScreen from './components/ChattingScreen';
 
@@ -16,6 +16,7 @@ export default function App() {
         <Route exact path="/chat/:index" component={ChattingScreen} />
         <Route exact path="/chat" component={ChatList} />
         <Route path="/setting" component={Setting} />
+        <Route path="/" component={Home} />
       </Switch>
     </Wrapper>
   );

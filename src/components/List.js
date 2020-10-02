@@ -19,6 +19,7 @@ export default function List({ from, route }) {
         isSelected={selected === index ? true : false}
         onClick={() => setSelected(index)}
         onDoubleClick={() => {
+          console.log(`${match.url}/${index}`);
           history.push(`${match.url}/${index}`);
         }}
       >

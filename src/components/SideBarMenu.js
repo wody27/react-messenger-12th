@@ -8,19 +8,19 @@ export default function SideBarMenu() {
       <TopIcons>
         <Link to="/friend">
           <Img
-            src="https://user-images.githubusercontent.com/56102421/94908442-a1467e80-04dc-11eb-9fed-185b480a5b95.png"
+            src="https://user-images.githubusercontent.com/56102421/94927907-dadbb180-04fd-11eb-836d-d0f2dedf7abb.png"
             alt="친구"
           />
         </Link>
         <Link to="/chat">
           <Img
-            src="https://user-images.githubusercontent.com/56102421/94907909-d56d6f80-04db-11eb-9815-ab4959a057f5.png"
+            src="https://user-images.githubusercontent.com/56102421/94927901-d911ee00-04fd-11eb-9745-923c39c7bd27.png"
             alt="채팅"
           />
         </Link>
         <Link to="/setting">
           <Img
-            src="https://user-images.githubusercontent.com/56102421/94907250-d2be4a80-04da-11eb-9639-b2c93e849286.png"
+            src="https://user-images.githubusercontent.com/56102421/94927894-d616fd80-04fd-11eb-8352-6a3cbf414695.png"
             alt="설정"
           />
         </Link>
@@ -28,11 +28,11 @@ export default function SideBarMenu() {
       <BottomIcons>
         <Img
           className="alarm"
-          src="https://user-images.githubusercontent.com/56102421/94907771-9b9c6900-04db-11eb-9717-50a9da542b0b.png"
+          src="https://user-images.githubusercontent.com/56102421/94927897-d7e0c100-04fd-11eb-8d57-1f3ddea2abb9.png"
           alt="알람"
         />
         <Img
-          src="https://user-images.githubusercontent.com/56102421/94911096-91c93480-04e0-11eb-91e8-c159642129f6.png"
+          src="https://user-images.githubusercontent.com/56102421/94926671-15444f00-04fc-11eb-9b98-f2142c434144.png"
           alt="설정"
         ></Img>
       </BottomIcons>
@@ -74,7 +74,6 @@ const BottomIcons = styled.div`
 
 const Img = styled.img`
   width: 25px;
-  height: 25px;
 
   margin: 0;
   padding: 6px 0;
