@@ -18,15 +18,15 @@ export default function ChattingScreen({ match }) {
   const MY_PROFILE_IMG =
     'https://user-images.githubusercontent.com/56102421/94894116-af3bd580-04c3-11eb-87d0-d77e6794203e.jpeg';
   const MSGLIST = [
-    { user: true, content: '안녕하세요 12기 프론트엔드 개발자분들' },
-    { user: true, content: '저희의 대화를 마음껏 조작해보세요 💌' },
-    { user: true, content: '상단에 프로필을 눌러서 발신자 변경하면 됩니당~' },
-    { user: false, content: '안녕 은아' },
+    { user: true, content: '안녕하세요 개발자분들~!' },
+    { user: true, content: '카카오톡이랑 비슷하게 구현해보는중이에요!' },
+    { user: true, content: '상단에 프로필을 눌러서 발신자 변경하면 됩니다~' },
+    { user: false, content: '안녕 정욱이형' },
     { user: false, content: 'ㅁㅎ?' },
-    { user: true, content: '시원아 넌 최고의 팀장이야' },
-    { user: false, content: '나도 아니까  ' },
-    { user: false, content: '그만 말해줘도 돼' },
-    { user: true, content: 'ㅠㅠ' },
+    { user: true, content: '너가 만든 거 구경중이야' },
+    { user: true, content: '너무 못 만들었는데?' },
+    { user: false, content: '형은 못 생겼어' },
+    { user: true, content: '인정..' },
   ];
 
   const [currentUser, setCurrentUser] = useState(false); // 현재 채팅하는 사람

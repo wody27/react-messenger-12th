@@ -8,42 +8,33 @@ export default function SideBarMenu() {
       <TopIcons>
         <Link to="/friend">
           <Img
-            src="https://user-images.githubusercontent.com/56102421/94892448-9b8e7000-04bf-11eb-8d14-fba287d101be.jpg"
+            src="https://user-images.githubusercontent.com/56102421/94908442-a1467e80-04dc-11eb-9fed-185b480a5b95.png"
             alt="친구"
           />
         </Link>
         <Link to="/chat">
           <Img
-            src="https://user-images.githubusercontent.com/56102421/94892455-a0532400-04bf-11eb-8e6d-5c50ca79640e.png"
+            src="https://user-images.githubusercontent.com/56102421/94907909-d56d6f80-04db-11eb-9815-ab4959a057f5.png"
             alt="채팅"
           />
         </Link>
         <Link to="/setting">
           <Img
-            src="https://user-images.githubusercontent.com/56102421/94895284-165a8980-04c6-11eb-8d05-f401ea52d294.png"
+            src="https://user-images.githubusercontent.com/56102421/94907250-d2be4a80-04da-11eb-9639-b2c93e849286.png"
             alt="설정"
           />
         </Link>
       </TopIcons>
       <BottomIcons>
-        <Button>
-          <Img
-            src="https://user-images.githubusercontent.com/56102421/94892452-9f21f700-04bf-11eb-83ac-1b59cc80d4b1.png"
-            alt="캘린더"
-          />
-        </Button>
-        <Button>
-          <Img
-            src="https://user-images.githubusercontent.com/56102421/94892453-9f21f700-04bf-11eb-8dbe-70d3d6e2f832.png"
-            alt="알람"
-          />
-        </Button>
-        <Button>
-          <Img
-            src="https://user-images.githubusercontent.com/56102421/94892454-9fba8d80-04bf-11eb-8cfb-198dc358a8d4.png"
-            alt="설정"
-          />
-        </Button>
+        <Img
+          className="alarm"
+          src="https://user-images.githubusercontent.com/56102421/94907771-9b9c6900-04db-11eb-9717-50a9da542b0b.png"
+          alt="알람"
+        />
+        <Img
+          src="https://user-images.githubusercontent.com/56102421/94911096-91c93480-04e0-11eb-91e8-c159642129f6.png"
+          alt="설정"
+        ></Img>
       </BottomIcons>
     </Wrapper>
   );
@@ -67,28 +58,31 @@ const Wrapper = styled.div`
 `;
 
 const TopIcons = styled.div`
+  margin-top: 75px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const BottomIcons = styled.div`
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const Img = styled.img`
-  width: 30px;
-  height: 30px;
-  margin: 0;
-  padding: 0;
-  color: red;
-`;
-const Button = styled.button`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 
   margin: 0;
-  padding: 0;
+  padding: 6px 0;
+
+  color: white;
+  opacity: 0.5;
+
+  .alarm {
+    margin-bottom: 30px;
+  }
 `;

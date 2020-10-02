@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// Data
+import CHAT_LIST_DATA from '../resources/ChatListData';
+import FRIEND_LIST_DATA from '../resources/FriendListData';
+
 export default function SearchBar({ placeholderName }) {
   const [text, setText] = useState('');
 
   const handleTextChanged = (event) => {
     setText(event.target.value);
+    console.log(text);
   };
 
   const handleTextSubmitted = (event) => {
     event.preventDefault();
+
     setText('');
   };
 

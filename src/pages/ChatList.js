@@ -6,6 +6,7 @@ import Label from '../components/Label';
 import List from '../components/List';
 
 export default function ChatList(props) {
+  const { match } = props;
   return (
     <Wrapper>
       <Fixed>
