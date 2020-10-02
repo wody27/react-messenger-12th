@@ -20,7 +20,7 @@ export default function SideBarMenu() {
         </Link>
         <Link to="/setting">
           <Img
-            src="https://user-images.githubusercontent.com/56102421/94892451-9e896080-04bf-11eb-9e3e-35f3d5c72ee5.jpg"
+            src="https://user-images.githubusercontent.com/56102421/94895284-165a8980-04c6-11eb-8d05-f401ea52d294.png"
             alt="설정"
           />
         </Link>

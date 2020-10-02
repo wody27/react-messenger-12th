@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+// Components
 import Header from './Header';
 import MessageSender from './MessageSender';
 import MessageLine from './MessageLine';
 
-export default function ChattingScreen(props) {
-  const EUNKO = 'https://img.techpowerup.org/200908/eun.png';
-  const COOL = 'https://img.techpowerup.org/200908/NjRiY2JjOGU5YzQz.png';
+// Data
+import CHAT_LIST_DATA from '../resources/ChatListData';
+import FRIEND_LIST_DATA from '../resources/FriendListData';
 
+export default function ChattingScreen({ match }) {
+  const isChat = match.url.split('/')[1] === 'chat' ? true : false;
+  const index = match.params.index;
+
+  const OPPONENT_PROFILE = isChat ? CHAT_LIST_DATA[index] : FRIEND_LIST_DATA[index];
+  const MY_PROFILE_IMG =
+    'https://user-images.githubusercontent.com/56102421/94894116-af3bd580-04c3-11eb-87d0-d77e6794203e.jpeg';
   const MSGLIST = [
     { user: true, content: '안녕하세요 12기 프론트엔드 개발자분들' },
     { user: true, content: '저희의 대화를 마음껏 조작해보세요 💌' },
@@ -23,7 +31,7 @@ export default function ChattingScreen(props) {
 
   const [currentUser, setCurrentUser] = useState(false); // 현재 채팅하는 사람
   const [newMessageList, setNewMessageList] = useState(MSGLIST); // Re-Rendering하기 위하여 생성
-  console.log(props);
+
   useEffect(() => {
     window.scrollBy(0, document.body.scrollHeight);
   }, [newMessageList]);
@@ -45,13 +53,22 @@ export default function ChattingScreen(props) {
 
   const chatting = newMessageList.map((msg, index) => {
     return (
-      <MessageLine key={index} user={msg.user} profileImg={msg.user ? EUNKO : COOL} message={msg.content}></MessageLine>
+      <MessageLine
+        key={index}
+        user={msg.user}
+        profileImg={msg.user ? OPPONENT_PROFILE.image : MY_PROFILE_IMG}
+        message={msg.content}
+      ></MessageLine>
     );
   });
 
   return (
     <Wrapper>
-      <Header user={currentUser ? '고은' : '정쿨'} profileImg={currentUser ? EUNKO : COOL} {...{ changeUser }}></Header>
+      <Header
+        user={currentUser ? OPPONENT_PROFILE.name : '이재용'}
+        profileImg={currentUser ? OPPONENT_PROFILE.image : MY_PROFILE_IMG}
+        {...{ changeUser }}
+      ></Header>
       <EmptyChat></EmptyChat>
       {chatting}
       <EmptyChat></EmptyChat>
