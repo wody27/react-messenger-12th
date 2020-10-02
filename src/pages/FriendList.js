@@ -37,13 +37,16 @@ const Wrapper = styled.div`
 
 const FriendCount = styled.span`
   margin-left: 5px;
+
   color: gray;
   font-size: 18px;
 `;
+
 const Empty = styled.div`
   display: flex;
   align-items: flex-end;
 `;
+
 const HStack = styled.div`
   width: 100%;
   height: 24px;

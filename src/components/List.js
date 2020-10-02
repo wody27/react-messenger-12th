@@ -17,7 +17,9 @@ export default function List({ from, route }) {
       <Button
         key={index}
         isSelected={selected === index ? true : false}
-        onClick={() => setSelected(index)}
+        onClick={() => {
+          setSelected(index);
+        }}
         onDoubleClick={() => {
           console.log(`${match.url}/${index}`);
           history.push(`${match.url}/${index}`);
@@ -33,7 +35,6 @@ export default function List({ from, route }) {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
 
   margin: 0;
   margin-top: 100px;
