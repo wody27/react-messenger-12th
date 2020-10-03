@@ -9,18 +9,10 @@ import List from '../components/List';
 // Data
 import CHAT_L_DATA from '../resources/ChatL.json';
 
-function filter(search) {
-  return CHAT_L_DATA.data.filter((friend) => {
-    if (friend.name.includes(search)) {
-      return friend;
-    } else {
-      return null;
-    }
-  });
-}
+// Library
+import filter from '../library/filter';
 
 export default function ChatList(props) {
-  // 검색 기능
   const [search, setSearch] = useState('');
   const [filteredData, setFilteredData] = useState(CHAT_L_DATA.data);
   const getText = (text) => {
@@ -28,7 +20,7 @@ export default function ChatList(props) {
   };
 
   useEffect(() => {
-    setFilteredData(filter(search));
+    setFilteredData(filter(search, CHAT_L_DATA.data));
   }, [search]);
   return (
     <Wrapper>

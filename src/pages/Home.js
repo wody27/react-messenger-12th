@@ -5,7 +5,7 @@ import { Animated } from 'react-animated-css';
 export default function Home() {
   return (
     <Wrapper>
-      <Animated animationIn="bounce" animationInDuration="2000">
+      <Animated animationIn="bounce" animationInDuration={1800}>
         <HStack>
           <Title>wody's Kakaotalk </Title>
           <Img
@@ -14,7 +14,7 @@ export default function Home() {
           />
         </HStack>
       </Animated>
-      <Animated animationIn="fadeIn" animationInDelay="3000">
+      <Animated animationIn="fadeIn" animationInDelay={1800}>
         <SubTitle>좌측 사이드바를 눌러주세요!</SubTitle>
       </Animated>
     </Wrapper>
