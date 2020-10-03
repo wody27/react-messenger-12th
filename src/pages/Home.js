@@ -24,6 +24,8 @@ export default function Home() {
 const Wrapper = styled.div`
   height: 100vh;
 
+  margin-left: 70px;
+
   background-color: #abc1d1;
 
   display: flex;
@@ -39,9 +41,7 @@ const HStack = styled.div`
 `;
 
 const Title = styled.h1`
-  margin-right: 30px;
-
-  font-size: 50px;
+  margin-right: 15px;
 `;
 
 const Img = styled.img``;
