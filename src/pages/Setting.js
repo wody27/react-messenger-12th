@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Components
 import Label from '../components/Label';
+
 export default function Setting() {
   return (
     <Wrapper>

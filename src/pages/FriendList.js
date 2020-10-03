@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+// Components
 import SearchBar from '../components/SearchBar';
 import Label from '../components/Label';
 import List from '../components/List';
 
-import FRIEND_LIST_DATA from '../resources/FriendListData';
+// Data
+import FRIEND_L_DATA from '../resources/FriendL.json';
 
 function filter(search) {
-  return FRIEND_LIST_DATA.filter((friend) => {
+  return FRIEND_L_DATA.data.filter((friend) => {
     if (friend.name.includes(search)) {
       return friend;
+    } else {
+      return null;
     }
   });
 }
@@ -18,7 +22,7 @@ function filter(search) {
 export default function ChatList(props) {
   // 검색 기능
   const [search, setSearch] = useState('');
-  const [filteredData, setFilteredData] = useState(FRIEND_LIST_DATA);
+  const [filteredData, setFilteredData] = useState(FRIEND_L_DATA.data);
   const getText = (text) => {
     setSearch(text);
   };
@@ -32,7 +36,7 @@ export default function ChatList(props) {
         <HStack>
           <Empty>
             <Label label="친구" />
-            <FriendCount>{`${FRIEND_LIST_DATA.length}`}</FriendCount>
+            <FriendCount>{`${filteredData.length}`}</FriendCount>
           </Empty>
           <Label label="친구이미지" />
         </HStack>

@@ -2,19 +2,28 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 // Components
-import Header from './Header';
-import MessageSender from './MessageSender';
-import MessageLine from './MessageLine';
+import Header from '../components/Header';
+import MessageSender from '../components/MessageSender';
+import MessageLine from '../components/MessageLine';
 
 // Data
-import CHAT_LIST_DATA from '../resources/ChatListData';
-import FRIEND_LIST_DATA from '../resources/FriendListData';
+import CHAT_L_DATA from '../resources/ChatL.json';
+import FRIEND_L_DATA from '../resources/FriendL.json';
 
 export default function ChattingScreen({ match }) {
   const isChat = match.url.split('/')[1] === 'chat' ? true : false;
   const index = match.params.index;
-  console.log(match.params);
-  const OPPONENT_PROFILE = isChat ? CHAT_LIST_DATA[index] : FRIEND_LIST_DATA[index];
+  const OPPONENT_PROFILE = isChat
+    ? CHAT_L_DATA.data[
+        CHAT_L_DATA.data.findIndex((item) => {
+          return `${item.idx}` === index;
+        })
+      ]
+    : FRIEND_L_DATA.data[
+        FRIEND_L_DATA.data.findIndex((item) => {
+          return `${item.idx}` === index;
+        })
+      ];
   const MY_PROFILE_IMG =
     'https://user-images.githubusercontent.com/56102421/94894116-af3bd580-04c3-11eb-87d0-d77e6794203e.jpeg';
 

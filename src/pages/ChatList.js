@@ -7,12 +7,14 @@ import Label from '../components/Label';
 import List from '../components/List';
 
 // Data
-import CHAT_LIST_DATA from '../resources/ChatListData';
+import CHAT_L_DATA from '../resources/ChatL.json';
 
 function filter(search) {
-  return CHAT_LIST_DATA.filter((friend) => {
+  return CHAT_L_DATA.data.filter((friend) => {
     if (friend.name.includes(search)) {
       return friend;
+    } else {
+      return null;
     }
   });
 }
@@ -20,7 +22,7 @@ function filter(search) {
 export default function ChatList(props) {
   // 검색 기능
   const [search, setSearch] = useState('');
-  const [filteredData, setFilteredData] = useState(CHAT_LIST_DATA);
+  const [filteredData, setFilteredData] = useState(CHAT_L_DATA.data);
   const getText = (text) => {
     setSearch(text);
   };

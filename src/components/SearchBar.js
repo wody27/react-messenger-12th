@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-// Data
-import CHAT_LIST_DATA from '../resources/ChatListData';
-import FRIEND_LIST_DATA from '../resources/FriendListData';
-
 export default function SearchBar({ sendText, placeholderName }) {
   const [text, setText] = useState('');
 

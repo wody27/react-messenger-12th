@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// Components
 import Cell from './Cell';
 
 export default function List({ data, from, route }) {
@@ -20,7 +21,7 @@ export default function List({ data, from, route }) {
           }}
           onDoubleClick={() => {
             match.params = { data: data };
-            history.push(`${match.url}/${index}`);
+            history.push(`${match.url}/${item.idx}`);
           }}
         >
           <Cell key={index} name={item.name} img={item.image} message={item.message} list={isChatList} />

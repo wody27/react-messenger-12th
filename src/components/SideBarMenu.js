@@ -1,25 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export default function SideBarMenu() {
+  const [selected, setSelected] = useState('');
+  const handleImageClicked = (event) => {
+    setSelected(event.target.alt);
+  };
   return (
     <Wrapper>
       <TopIcons>
         <Link to="/friend">
           <Img
+            selected={selected === '친구' ? true : false}
+            onClick={handleImageClicked}
             src="https://user-images.githubusercontent.com/56102421/94927907-dadbb180-04fd-11eb-836d-d0f2dedf7abb.png"
             alt="친구"
           />
         </Link>
         <Link to="/chat">
           <Img
+            selected={selected === '채팅' ? true : false}
+            onClick={handleImageClicked}
             src="https://user-images.githubusercontent.com/56102421/94927901-d911ee00-04fd-11eb-9745-923c39c7bd27.png"
             alt="채팅"
           />
         </Link>
         <Link to="/setting">
           <Img
+            selected={selected === '설정' ? true : false}
+            onClick={handleImageClicked}
             src="https://user-images.githubusercontent.com/56102421/94927894-d616fd80-04fd-11eb-8352-6a3cbf414695.png"
             alt="설정"
           />
@@ -79,7 +89,7 @@ const Img = styled.img`
   padding: 6px 0;
 
   color: white;
-  opacity: 0.5;
+  opacity: ${({ selected }) => (selected ? '0.9' : '0.3')};
 
   .alarm {
     margin-bottom: 30px;

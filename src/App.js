@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import { FriendList, ChatList, Setting, Home } from './pages';
 import SideBarMenu from './components/SideBarMenu';
-import ChattingScreen from './components/ChattingScreen';
+import ChattingScreen from './pages/ChattingScreen';
 
 export default function App() {
   return (
