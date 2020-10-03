@@ -10,6 +10,14 @@ export default function SideBarMenu() {
   return (
     <Wrapper>
       <TopIcons>
+        <Link to="/">
+          <Img
+            selected={selected === '홈' ? true : false}
+            onClick={handleImageClicked}
+            src="https://user-images.githubusercontent.com/56102421/94989369-40d44180-05af-11eb-9add-f3b5584932af.png"
+            alt="홈"
+          />
+        </Link>
         <Link to="/friend">
           <Img
             selected={selected === '친구' ? true : false}

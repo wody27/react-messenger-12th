@@ -1,23 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Animated } from 'react-animated-css';
 
 export default function Home() {
   return (
     <Wrapper>
-      <HStack>
-        <Title>wody's Kakaotalk </Title>
-        <Img
-          src="https://user-images.githubusercontent.com/56102421/94937531-a7535400-050a-11eb-99fd-76c93e6caff6.png"
-          alt=""
-        />
-      </HStack>
-      <SubTitle>좌측 사이드바를 눌러주세요!</SubTitle>
+      <Animated animationIn="bounce" animationInDuration="2000">
+        <HStack>
+          <Title>wody's Kakaotalk </Title>
+          <Img
+            src="https://user-images.githubusercontent.com/56102421/94937531-a7535400-050a-11eb-99fd-76c93e6caff6.png"
+            alt=""
+          />
+        </HStack>
+      </Animated>
+      <Animated animationIn="fadeIn" animationInDelay="3000">
+        <SubTitle>좌측 사이드바를 눌러주세요!</SubTitle>
+      </Animated>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  // width: 100%;
   height: 100vh;
 
   background-color: #abc1d1;
@@ -36,6 +40,8 @@ const HStack = styled.div`
 
 const Title = styled.h1`
   margin-right: 30px;
+
+  font-size: 50px;
 `;
 
 const Img = styled.img``;
