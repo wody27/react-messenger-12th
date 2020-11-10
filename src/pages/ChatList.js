@@ -10,7 +10,7 @@ import List from '../components/List';
 import CHAT_L_DATA from '../resources/ChatL.json';
 
 // Library
-import filter from '../library/filter';
+import filterChatsAndFriends from '../library/filter';
 
 export default function ChatList(props) {
   const [search, setSearch] = useState('');
@@ -20,7 +20,7 @@ export default function ChatList(props) {
   };
 
   useEffect(() => {
-    setFilteredData(filter(search, CHAT_L_DATA.data));
+    setFilteredData(filterChatsAndFriends(search, CHAT_L_DATA.data));
   }, [search]);
   return (
     <Wrapper>

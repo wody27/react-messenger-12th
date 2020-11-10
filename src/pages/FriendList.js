@@ -10,7 +10,7 @@ import List from '../components/List';
 import FRIEND_L_DATA from '../resources/FriendL.json';
 
 // Library
-import filter from '../library/filter';
+import filterChatsAndFriends from '../library/filter';
 
 export default function ChatList(props) {
   const [search, setSearch] = useState('');
@@ -20,7 +20,7 @@ export default function ChatList(props) {
   };
 
   useEffect(() => {
-    setFilteredData(filter(search, FRIEND_L_DATA.data));
+    setFilteredData(filterChatsAndFriends(search, FRIEND_L_DATA.data));
   }, [search]);
   return (
     <Wrapper>
@@ -40,7 +40,6 @@ export default function ChatList(props) {
 }
 
 const Wrapper = styled.div`
-  // width: 100%;
   height: 100%;
 
   margin-left: 70px;

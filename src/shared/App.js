@@ -13,8 +13,9 @@ export default function App() {
       <Switch>
         <Route path="/friend/:index" component={ChattingScreen} />
         <Route path="/friend" component={FriendList} />
-        <Route exact path="/chat/:index" component={ChattingScreen} />
         <Route exact path="/chat" component={ChatList} />
+        <Route path="/chat/:index" component={ChattingScreen} />
+
         <Route path="/setting" component={Setting} />
         <Route path="/" component={Home} />
       </Switch>

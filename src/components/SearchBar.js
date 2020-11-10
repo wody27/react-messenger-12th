@@ -2,25 +2,25 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 export default function SearchBar({ sendText, placeholderName }) {
-  const [text, setText] = useState('');
+  const [messageText, setMessageText] = useState('');
 
   useEffect(() => {
-    sendText(text);
-  }, [text]);
+    sendText(messageText);
+  }, [messageText]);
 
   const handleTextChanged = (event) => {
-    setText(event.target.value);
+    setMessageText(event.target.value);
   };
 
   const handleTextSubmitted = (event) => {
     event.preventDefault();
-    setText('');
+    setMessageText('');
   };
 
   return (
     <Wrapper onSubmit={handleTextSubmitted}>
       <Glass>🔍</Glass>
-      <Search name="text" value={text} placeholder={placeholderName} onChange={handleTextChanged} />
+      <Search name="text" value={messageText} placeholder={placeholderName} onChange={handleTextChanged} />
     </Wrapper>
   );
 }

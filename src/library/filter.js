@@ -1,9 +1,5 @@
-export default function filter(search, data) {
+export default function filterChatsAndFriends(search, data) {
   return data.filter((friend) => {
-    if (friend.name.includes(search)) {
-      return friend;
-    } else {
-      return null;
-    }
+    return friend.name.includes(search) ? friend : null;
   });
 }

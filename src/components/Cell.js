@@ -15,7 +15,6 @@ export default function Cell({ name, img, message, list }) {
 
 const Wrapper = styled.div`
   width: 100%;
-
   display: flex;
   align-items: center;
 `;
