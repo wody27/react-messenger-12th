@@ -1,99 +1,78 @@
-## 2주차 미션: React-Messenger💌
+## CEOS 2주차 스터디
 
----
+- 미션 링크: https://react-messenger-12th.wody27.vercel.app
+- [미션을 통해 배운점, 힘들었던 점](#미션을-통해-배운점,-힘들었던-점)
+- [Key Questions](#Key-Questions)
 
-### 서론
 
----
 
-안녕하세요 12기 프론트엔드 운영진 고은입니다😆
+### 미션을 통해 배운점, 힘들었던 점
 
-2주차부터는, React를 사용하여 미션을 진행해주시면 되는데요, 리액트 첫 미션인 만큼 React 자체에 익숙해지기 위한 시간을 가져보시게 될거에요!
+#### 새롭게 알게 된 점
 
-또한 1주차에서 사용해봤던 바닐라 JS의 불편함이라고 할 수 있는 점들을 리액트가 어떻게 해결하는지 직접 코드를 짜보면서 알아보면서 리액트의 컨셉을 전체적으로 이해하시면 좋을 것 같습니다~
+- [Props, State, JSX 문법](https://github.com/wody27/TIL/blob/master/React기초.md)
 
-2주차 미션 마감일시는 2020년 9월 25일 금요일까지입니다.
+- scrollBy 이용하기
 
-진행 중 어려운 상황이 있다면, 우선 스스로 공부하고 찾아보시구
+  ```javascript
+  // scroll down
+  window.scrollBy(0, window.innerHeight);
+  
+  // scroll up
+  window.scrollBy(0, -window.innerHeight);
+  ```
 
-너무 해결이 안된다 싶으면 슬랙의 qna채널에 올려주시면 됩니다~~
+- 상단 바, 하단 바 고정시키기 
 
-PR 보내실땐 양식 맞춰주시고, 이번주 부터는 now로 배포한 링크까지 PR 보내주실때 링크 첨부해주세요~~
+  ```css
+  position: fixed;
+  bottom: 0;
+  width: 100%
+  ```
 
-12기분들 너무 멋져요!! 이번주도 화이팅✨
+- styleComponent공부
 
----
+  [밸로퍼트 블로그](https://react.vlpt.us/styling/03-styled-components.html)에 잘나와있당..
 
-## 미션
+#### 힘들었던 점 
 
----
+- 데이터 부모 컴포넌트로 끌고 올라가기
 
-#### 미션목표
+  ```jsx
+  // props를 통해 해결
+  const changeUser = () => {
+      setCurrentUser(!currentUser);
+   };
+  
+  <Header
+          user={currentUser ? '고은' : '정쿨'}
+          profileImg={currentUser ? EUNKO : COOL}
+          changeUser={changeUser}
+  ></Header>
+  ```
 
----
+- css
 
-- React의 기초를 이해한다.
-- useState로 컴포넌트의 상태를 관리할 수 있게된다.
-- useEffect의 사용법을 이해한다.
+  계속 마진과 패딩이 의도치 않게 생기는 점,,  --> width와 height를 확실히 정해주고 마진 패딩은 항상 초기화 시켜주자 ㅜ
 
-### 기한
-
----
-
-- 2020년 9월 25일(금)까지
-
-### Key Questions?
-
----
+### Key Questions
 
 - Virtual DOM이 무엇일까요?
-- 미션을 진행하면서 느낀, 리액트를 사용하는 장점이 있었다면?
+
+  실제 View의 DOM과 새로 업데이트 될 DOM을 비교하여 한번에 렌더링하게 해주는데 이 때 새로 업데이트 될 DOM을 저장해두는 가상의 돔..?!
+
+- 미션을 진행하면서 느낀, 리액트를 사용하는 장점이 있었다면? 
+
+  이번 미션에서 4개의 컴포넌트를 만들었다. 채팅화면, 헤더, 채팅글쓰기창, 하나의 채팅 컴포넌트,, 각 컴포넌트들이 하는 일들이 전부 다 달라서, 오류가 생겼을 때 어느 부분에서 오류가 났는지 확실히 알 수 있었다. 
+
+  또한 HTML파일에 가서 내가 지은 클래스이름을 찾아보지 않아도 되서 이것도 나름 장점이라고 하면 될 수 있겠다. 리액트만의 언어인 JSX를 통해 js파일내에서 구조를 짤 수 있다는 점!
+
 - 리액트에서는 상태를 어떻게 관리할까요?
+
+  Hook이 나오기 이전엔 class로 컴포넌트를 생성하여 그 내에서 state를 선언했고, setState() 메소드를 이용해서 상태를 관리했다. Hook이 나온 이후엔 함수 컴포넌트에서도 useState()를 이용하여 state를 생성 및 수정이 가능하다.
+
 - styled-components 사용후기 (CSS와 비교)
 
-### 필수 요건
+  props를 잘 이용하면 코드를 더 유지 보수가 쉽게 짤 수 있을 것 같은데 일단 css조차도 아직 익숙치 않아서.. css 먼저 빨리 익숙해져야겠다,,,
 
----
-
-- 함수형 컴포넌트를 사용한다.
-- styled-component를 이용하여 스타일링 한다.
-- 상단바에 메시지를 보내는 사람의 프로필을 띄운다. + 상단바의 프로필로 메시지 발신자를 바꿀 수 있게 한다.
-
-  (user: true는 은, user:false는 시원으로 고정됨)
-
-- 공백메시지는 입력되지 않도록 핸들링 한다. + alert 메세지 띄우기
-- 메시지 전송후 입력칸을 비워준다.
-- 메시지 전송후 스크롤을 밑으로 내려준다. (Hint : useEffect + scrollBy 이용)
-- 컴포넌트 이름을 역할이 잘 드러나게 짓는다.
-- 개발자도구에서 Style을 복사하지말고, 직접 styled-components를 사용하여 만드는 연습을 한다ㅠㅠ.
-- [결과 화면](https://react-messenger.eun-ko.vercel.app)을 구현한다.
-
-## 로컬 실행방법
-
----
-
-`npm start` : 로컬에서 react application을 자동으로 리로드하여 실행시켜줍니다.
-
-## 배포 방법
-
----
-
-- now에 회원가입하고 now를 설치합니다.
-
-1. https://zeit.co 에서 회원가입합니다.
-2. 터미널에서 `npm i -g now`를 입력해 now를 글로벌로 설치합니다.
-3. 명령 프롬프트에서 프로젝트 폴더에 들어간 후 now를 입력합니다.
-4. ID/PW를 입력합니다.
-5. zeit 가입시 입력한 이메일에서 인증 링크를 클릭합니다. <인증완료>
-6. 다시 프로젝트 폴더에서 `now`를 입력하면 자동으로 생성된 url에 배포됩니다!
-
-## 링크 및 참고자료
-
----
-
-- [create react app (CRA)](https://create-react-app.dev/docs/getting-started/)
-- [리액트 docs 주요 개념 1-12](https://ko.reactjs.org/docs/hello-world.html)
-- [리액트 docs Hook 1-3](https://ko.reactjs.org/docs/hooks-intro.html)
-- [컴포넌트 네이밍을 위한 자바스크립트 네이밍 컨벤션](https://ui.toast.com/fe-guide/ko_CODING-CONVENSION/#%EB%AA%85%EB%AA%85-%EA%B7%9C%EC%B9%99)
-- [useState, useEffect hooks](https://velog.io/@velopert/react-hooks#1-usestate)
-- [styled-component](https://styled-components.com/docs/basics#getting-started)
+  
